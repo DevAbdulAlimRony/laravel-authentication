@@ -1,0 +1,5 @@
+1. Custom Multi Authentication(Example in this Project: Admin, Client, Seller):
+    - Model with Migrations (Model will be Same as Default User Model that extends authenticatable)
+    - Add All Guards like admin, user in config/auth.php
+    - Define name of the $guard in each model
+    - Add Routes

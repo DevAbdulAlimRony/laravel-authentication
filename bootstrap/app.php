@@ -9,10 +9,22 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        then: function () {
+            Route::middleware('web')
+                  ->group(base_path('routes/admin.php'));
+        },
+        // client: function () {
+        //     Route::middleware('web')
+        //           ->group(base_path('routes/client.php'));
+        // },
+        // seller: function () {
+        //     Route::middleware('web')
+        //           ->group(base_path('routes/seller.php'));
+        // },
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        
     })->create();

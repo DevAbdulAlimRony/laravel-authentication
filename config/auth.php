@@ -18,6 +18,22 @@ return [
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
+    // Custom Defined
+    'admin' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+     ],
+
+    'client' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Client::class),
+    ],
+
+    'seller' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Seller::class),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -39,6 +55,20 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        // Custom Defined
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
         ],
     ],
 
@@ -63,6 +93,20 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+
+        // Custom Defined
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Client::class),
+        ],
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Seller::class),
         ],
 
         // 'users' => [
@@ -96,6 +140,20 @@ return [
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,
+        ],
+
+        // Custom Defined
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Client::class),
+        ],
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Seller::class),
         ],
     ],
 
